@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Lebewesen
+comment1.params=x\ y\ pHp
+comment1.target=Lebewesen(int,\ int,\ int)
+comment2.params=x\ y
+comment2.target=void\ setPos(int,\ int)
+comment3.params=xy
+comment3.target=int\ getPos(char)
+comment4.params=
+comment4.target=void\ gehe()
+comment5.params=
+comment5.target=void\ dreheRechts()
+comment6.params=
+comment6.target=void\ dreheLinks()
+comment7.params=pHp
+comment7.target=void\ setHp(int)
+comment8.params=
+comment8.target=int\ getHp()
+numComments=9

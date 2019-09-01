@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Held
+comment1.params=x\ y\ pHp
+comment1.target=Held(int,\ int,\ int)
+comment2.params=input
+comment2.target=void\ useCommand(java.lang.String)
+numComments=3

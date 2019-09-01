@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Spiel
+comment0.text=\ Die\ Hauptklasse\ des\ TextAdventures;\n\ \ \ Von\ hier\ werden\ alle\ anderen\ Klassen\ angesteuert.\n\n\ \n\ \n\ \ \ \ \ \ \ \ \ 0\ 1\ 2\ 3\ 4\ 5\ 6\ 7\ 8\ 9\ x\n\t0\ |\ |\ |\ |\ |\ |\ |\ |\ |\ \n\t1\ |\ |\ |\ |\ |\ |\ |G|\ |\ \n\t2\ |\ |\ |\ |\ |X|\ |\ |\ |\ \n\t3\ |\ |\ |\ |\ |X|\ |\ |\ |\ \n\t4\ |\ |\ |\ |\ |X|\ |\ |\ |\ \n\t5\ |\ |\ |\ |\ |X|\ |S|\ |\ \n\t6\ |\ |\ |\ |\ |X|X|X|X|X\n\t7\ |\ |\ |\ |\ |\ |\ |\ |\ |\ \n\t8\ |\ |\ |\ |\ |\ |\ |\ |\ |\ \n\t9\ |\ |T|\ |\ |\ |\ |\ |\ |\ \n\ \ \ \ \ \ \ \ y\n\t\n\ \ \ \ X\ \=\ Wand\n\ \ \ \ S\ \=\ Schatz\n\ \ \ \ T\ \=\ Tod\n\ \ \ \ G\ \=\ Gegner\n
+comment1.params=
+comment1.target=Spiel()
+comment2.params=input\ held
+comment2.target=void\ useCommand(java.lang.String,\ Held)
+comment3.params=
+comment3.target=void\ testWelt()
+comment4.params=
+comment4.target=void\ printMap()
+comment5.params=Held
+comment5.target=void\ printMapPlayer(Held)
+comment6.params=x\ y\ c
+comment6.target=void\ build(int,\ int,\ char)
+comment7.params=x\ y
+comment7.target=char\ pos(int,\ int)
+comment8.params=x1\ x2\ y1\ y2\ c
+comment8.target=void\ fill(int,\ int,\ int,\ int,\ char)
+numComments=9
