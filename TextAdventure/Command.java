@@ -13,13 +13,13 @@
  *
  * If the command had only one word, then the second word is <null>.
  * 
- * @author  Michael Kölling and David J. Barnes
+ * @author  Michael KÃ¶lling and David J. Barnes
  * @version 2011.07.31
  */
 
 public class Command
 {
-    private String commandWord;
+    public String commandWord;
     private String secondWord;
 
     /**
