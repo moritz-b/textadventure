@@ -13,7 +13,7 @@ public class CommandWords
 {
     // a constant array that holds all valid command words
     private static final String[] validCommands = {
-        "gehe", "map", "position", "dreheRechts", "dreheLinks", "greife", "legeZurÃ¼ck", "legeAb", "beenden", "rucksack", "inHand", "hilfe", "nimm", "ja", "nein", "benutze", "Bauer", "Soldat", "Arzt"
+        "gehe", "kaempfen", "fliehen", "map", "position", "dreheRechts", "dreheLinks", "greife", "legeZurÃ¼ck", "legeAb", "beenden", "rucksack", "inHand", "hilfe", "nimm", "ja", "nein", "benutze", "Bauer", "Soldat", "Arzt"
     };
     
 
@@ -37,7 +37,7 @@ public class CommandWords
                 return true;
         }
         // if we get here, the string was not found in the commands
-        return false;
+        return false;        
     }
     
     public String showCommandWords()

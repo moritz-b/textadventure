@@ -4,8 +4,7 @@ public class lebewesen
     protected int leben;    
     protected double ausweichen;  
     private int[] pos = new int[2];
-    private int hp;
-    private int facing = 1; // 0=N, 1=E, 2=S, 3=W
+    public static int facing = 1; // 0=N, 1=E, 2=S, 3=W
     public lebewesen(String pKlasse, int pLeben, double pAusweichen, int x, int y)
     {
         klasse = pKlasse;
@@ -27,6 +26,32 @@ public class lebewesen
         }
     }
     
+    public void fliehen() {        
+            System.out.println("Du gehst auf das vorherige Feld zurück");
+            switch(facing) {
+            case 0:
+                facing = 2;
+                gehe();
+                facing = 0;
+                break;
+            case 1:
+                facing = 3;
+                gehe();
+                facing = 1;
+                break;
+            case 2:
+                facing = 0;
+                gehe();
+                facing = 2;
+                break;
+            case 3:
+                facing = 1;
+                gehe();
+                facing = 3;
+                break;             
+        }
+        }    
+    
     public void gehe() {
         switch(facing) {
             case 0:
@@ -40,7 +65,15 @@ public class lebewesen
                 break;
             case 3:
                 setPos(getPos('x')-1, getPos('y')-1);
-                break;
+                break;             
+        }   
+        //Es wird geprüft, ob auf dem selben Feld ein Moster ist
+        for (int i = 0; i < spiel.monsterArray.length; i++)
+        {
+            if((spiel.held.getPos('x') == spiel.monsterArray[i].getPos('x')) && (spiel.held.getPos('y') == spiel.monsterArray[i].getPos('y')))
+            {
+                kampf.kampfBeginn(spiel.monsterArray[i]);
+            }
         }
     }
     

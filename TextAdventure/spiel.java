@@ -1,19 +1,20 @@
 import java.util.Scanner;
+
 public class spiel
-{
-    
+{    
     private CommandWords commands;  // holds all valid command words
     private Scanner reader;   // source of command input
-    private lebewesen spieler;
+    public static menschen held;
     private char[][] pos = new char[10][10]; //Der zweidimensionale Array wird hier initialisert
     private boolean gameRunning = true;
+    //Ein Array in dem alle Monster gespeichert sind
+    public static monster[] monsterArray = new monster[1];
     /**
      * Create a parser to read from the terminal window.
      */
     public spiel()
-    {
+    {        
         Parser parser = new Parser();
-        menschen herbert = new menschen(fernkampf.revolver, nahkampf.dolch, faehigkeiten.granate, 150, "Soldat", 10, 7, 0, 0);
         testWelt();
         commands = new CommandWords();
         reader = new Scanner(System.in);
@@ -22,38 +23,36 @@ public class spiel
         String character = parser.getCommand().commandWord;
         fernkampf.waffen();
         nahkampf.waffen();
+        monsterSpawn();
         faehigkeiten.faehigkeiten();
         if(character.equals("Bauer"))
             {
                 System.out.println("Storyline und Auftrag an den Spieler mit dem Bauer");
-                spieler = new bauer();
+                held = new bauer();
             }
         else if(character.equals("Soldat"))
             {
                 System.out.println("Storyline und Auftrag an den Spieler mit dem Soldat");
-                spieler = new soldat();
+                held = new soldat();
             }
         else if(character.equals("Arzt"))
             {
                 System.out.println("Storyline und Auftrag an den Spieler mit dem Arzt");
-                spieler = new arzt();
+                held = new arzt();
             }
-    
-
-    
-    
-        
-        while (gameRunning = true) {
+           
+        while (gameRunning == true) {
             Command command = parser.getCommand();
             System.out.println(command.getCommandWord());
-            useCommand(command.getCommandWord() + "", herbert);
-            herbert.useCommand(command.getCommandWord() + "");
+            useCommand(command.getCommandWord() + "", held);
+            held.useCommand(command.getCommandWord() + "");
         }
     }
 
     private void useCommand(String input, menschen held) {
         if (input.equals("map")) {
             printMapPlayer(held);
+            
         }
     }
     
@@ -105,5 +104,10 @@ public class spiel
                 build(i, j, c);
             }
         }
+    }
+    
+    public void monsterSpawn()
+    {
+        monsterArray[0] = new berserkerZombie(1, 0);
     }
 }

@@ -14,6 +14,7 @@ public class nahkampf extends waffen
         mistgabel = new nahkampf(40, 80, 10, 1500, 150);        
         dolch = new nahkampf(20, 40, 15, 400, 200);
         machete = new nahkampf(30, 60, 10, 600, 200);
-        katana = new nahkampf(45, 90, 7, 1750, 150);        
+        katana = new nahkampf(35, 70, 10, 900, 200);
+        axt = new nahkampf(45, 90, 5, 1750, 150);
     }
 }

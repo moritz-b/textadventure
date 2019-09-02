@@ -13,7 +13,12 @@ public class fernkampf extends waffen
     }
     public static void waffen()
     {
-        revolver = new fernkampf(75, 150, 7, 700, 300);
-        ak47 = new fernkampf(20, 40, 7, 3800, 250);
+        revolver = new fernkampf(75, 225, 7, 700, 300);
+        ak47 = new fernkampf(20, 60, 7, 3800, 250);
+        uzi = new fernkampf(15, 45, 5, 300, 250);
+        schrotflinte = new fernkampf(100, 300, 2, 3300, 250);
+        granatwerfer = new fernkampf(150, 0, 0, 3900, 150);
+        raketenwerfer = new fernkampf(200, 0, 0, 4000, 150);
+        granate = new fernkampf(75, 0, 0, 0, 0);
     }
 }

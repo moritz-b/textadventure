@@ -17,4 +17,6 @@ comment7.params=x\ y
 comment7.target=char\ pos(int,\ int)
 comment8.params=x1\ x2\ y1\ y2\ c
 comment8.target=void\ fill(int,\ int,\ int,\ int,\ char)
-numComments=9
+comment9.params=
+comment9.target=void\ monsterSpawn()
+numComments=10

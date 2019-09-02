@@ -19,6 +19,10 @@ public class menschen extends lebewesen
                 this.dreheRechts();
         } else if (input.equals("dreheLinks")) {
                 this.dreheLinks();
+        } else if (input.equals("kaempfen")) {
+            
+        } else if (input.equals("fliehen")) {
+                 this.fliehen();  
         }
     }
 }
