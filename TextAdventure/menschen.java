@@ -18,11 +18,33 @@ public class menschen extends lebewesen
         } else if (input.equals("dreheRechts")) {
                 this.dreheRechts();
         } else if (input.equals("dreheLinks")) {
-                this.dreheLinks();
-        } else if (input.equals("kaempfen")) {
-            
+                this.dreheLinks();            
         } else if (input.equals("fliehen")) {
                  this.fliehen();  
+        } else if (input.equals("kaempfen")) {
+                 this.kaempfen();  
+        } else if (input.equals("revolver")) {
+                 this.waffe("revolver");
+        } else if (input.equals("ak47")) {
+                 this.waffe("ak47");
+        } else if (input.equals("uzi")) {
+                 this.waffe("uzi");
+        } else if (input.equals("schrotflinte")) {
+                 this.waffe("schrotflinte");
+        } else if (input.equals("raketenwerfer")) {
+                 this.waffe("raketenwerfer");
+        }else if (input.equals("granate")) {
+                 this.waffe("granate");
+        } else if (input.equals("axt")) {
+                 this.waffe("axt");
+        } else if (input.equals("katana")) {
+                 this.waffe("katana");
+        } else if (input.equals("dolch")) {
+                 this.waffe("dolch");
+        } else if (input.equals("machete")) {
+                 this.waffe("machete");
+        } else if (input.equals("mistgabel")) {
+                 this.waffe("mistgabel");
         }
     }
 }

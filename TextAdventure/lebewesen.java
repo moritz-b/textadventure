@@ -5,6 +5,8 @@ public class lebewesen
     protected double ausweichen;  
     private int[] pos = new int[2];
     public static int facing = 1; // 0=N, 1=E, 2=S, 3=W
+    //Eine Variable, damit beim gehen  nicht dirket ein Kampf stattfindet
+    public boolean kampfActive = false;
     public lebewesen(String pKlasse, int pLeben, double pAusweichen, int x, int y)
     {
         klasse = pKlasse;
@@ -24,6 +26,14 @@ public class lebewesen
         } else {
             return pos[1];
         }
+    }
+    
+    public void kaempfen() {
+        kampf.kaempfen();
+    }
+    
+    public void waffe(String waffenName) {
+        kampf.schaden(waffenName);
     }
     
     public void fliehen() {        
@@ -50,6 +60,7 @@ public class lebewesen
                 facing = 3;
                 break;             
         }
+        kampfActive = false;
         }    
     
     public void gehe() {
@@ -64,15 +75,20 @@ public class lebewesen
                 setPos(getPos('x'), getPos('y')+1);
                 break;
             case 3:
-                setPos(getPos('x')-1, getPos('y')-1);
+                setPos(getPos('x')-1, getPos('y'));
                 break;             
         }   
         //Es wird geprüft, ob auf dem selben Feld ein Moster ist
-        for (int i = 0; i < spiel.monsterArray.length; i++)
+        
+        if (kampfActive == false)
         {
-            if((spiel.held.getPos('x') == spiel.monsterArray[i].getPos('x')) && (spiel.held.getPos('y') == spiel.monsterArray[i].getPos('y')))
+            for (int i = 0; i < spiel.monsterArray.length; i++)
             {
-                kampf.kampfBeginn(spiel.monsterArray[i]);
+                if((spiel.held.getPos('x') == spiel.monsterArray[i].getPos('x')) && (spiel.held.getPos('y') == spiel.monsterArray[i].getPos('y')))
+                {
+                    kampf.kampfBeginn(i);
+                    kampfActive = true;
+                }
             }
         }
     }
