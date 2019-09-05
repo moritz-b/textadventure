@@ -38,28 +38,9 @@ public class lebewesen
     
     public void fliehen() {        
             System.out.println("Du gehst auf das vorherige Feld zurück");
-            switch(facing) {
-            case 0:
-                facing = 2;
-                gehe();
-                facing = 0;
-                break;
-            case 1:
-                facing = 3;
-                gehe();
-                facing = 1;
-                break;
-            case 2:
-                facing = 0;
-                gehe();
-                facing = 2;
-                break;
-            case 3:
-                facing = 1;
-                gehe();
-                facing = 3;
-                break;             
-        }
+            facing = (facing + 2) % 4;
+            gehe();
+            facing = (facing - 2) % 4; 
         kampfActive = false;
         }    
     
