@@ -11,10 +11,10 @@ public class nahkampf extends waffen
     }
     public static void waffen()
     {
-        mistgabel = new nahkampf("mistgabel", 40, 80, 10, 1500, 150);        
-        dolch = new nahkampf("dolch", 20, 40, 15, 400, 200);
-        machete = new nahkampf("machete", 30, 60, 10, 600, 200);
-        katana = new nahkampf("katana", 35, 70, 10, 900, 200);
-        axt = new nahkampf("axt", 45, 90, 5, 1750, 150);
+        mistgabel = new nahkampf("mistgabel", 40, 80, 10, 1.5, 150);        
+        dolch = new nahkampf("dolch", 20, 40, 15, 0.4, 200);
+        machete = new nahkampf("machete", 30, 60, 10, 0.6, 200);
+        katana = new nahkampf("katana", 35, 70, 10, 0.9, 200);
+        axt = new nahkampf("axt", 45, 90, 5, 1.25, 150);
     }
 }

@@ -6,7 +6,8 @@ public class lebewesen
     private int[] pos = new int[2];
     public static int facing = 1; // 0=N, 1=E, 2=S, 3=W
     //Eine Variable, damit beim gehen  nicht dirket ein Kampf stattfindet
-    public boolean kampfActive = false;
+    public static boolean kampfActive = false;
+    public static boolean tauschActive = false;
     public lebewesen(String pKlasse, int pLeben, double pAusweichen, int x, int y)
     {
         klasse = pKlasse;
@@ -32,8 +33,24 @@ public class lebewesen
         kampf.kaempfen();
     }
     
+    public void inventar() {
+        rucksack.ansehen();
+    }
+    
+    public void weglegen() {
+        String name = Command.secondWord;
+        rucksack.weglegen(name);
+    }
+    
     public void waffe(String waffenName) {
-        kampf.schaden(waffenName);
+        if(tauschActive != true)
+        {
+            kampf.schaden(waffenName);
+       }
+       else 
+       {
+           rucksack.tauschen2(waffenName);
+        }
     }
     
     public void fliehen() {        
@@ -41,37 +58,41 @@ public class lebewesen
             facing = (facing + 2) % 4;
             gehe();
             facing = (facing - 2) % 4; 
-        kampfActive = false;
+            kampfActive = false;
         }    
     
     public void gehe() {
-        switch(facing) {
-            case 0:
-                setPos(getPos('x'), getPos('y')-1);
-                break;
-            case 1:
-                setPos(getPos('x')+1, getPos('y'));
-                break;
-            case 2:
-                setPos(getPos('x'), getPos('y')+1);
-                break;
-            case 3:
-                setPos(getPos('x')-1, getPos('y'));
-                break;             
-        }   
-        //Es wird geprüft, ob auf dem selben Feld ein Moster ist
-        
         if (kampfActive == false)
         {
-            for (int i = 0; i < spiel.monsterArray.length; i++)
+            switch(facing) {
+                case 0:
+                    setPos(getPos('x'), getPos('y')-1);
+                    break;
+                    case 1:
+                    setPos(getPos('x')+1, getPos('y'));
+                    break;
+                    case 2:
+                    setPos(getPos('x'), getPos('y')+1);
+                    break;
+                    case 3:
+                    setPos(getPos('x')-1, getPos('y'));
+                    break;             
+                }   
+                //Es wird geprüft, ob auf dem selben Feld ein Moster ist                
+            for (int i = 0; i < spiel.monsterList.size(); i++)
             {
-                if((spiel.held.getPos('x') == spiel.monsterArray[i].getPos('x')) && (spiel.held.getPos('y') == spiel.monsterArray[i].getPos('y')))
+                if((spiel.held.getPos('x') == spiel.monsterList.get(i).getPos('x')) && (spiel.held.getPos('y') == spiel.monsterList.get(i).getPos('y')))
                 {
-                    kampf.kampfBeginn(i);
                     kampfActive = true;
+                    kampf.kampfBeginn(i);                    
                 }
             }
         }
+    }
+    
+    public void tauschen() {
+        String name = Command.secondWord;
+        rucksack.tauschen(name);
     }
     
     public void dreheRechts() {

@@ -20,7 +20,7 @@
 public class Command
 {
     public String commandWord;
-    private String secondWord;
+    public static String secondWord;
 
     /**
      * Create a command object. First and second word must be supplied, but
