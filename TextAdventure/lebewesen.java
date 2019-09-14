@@ -53,12 +53,12 @@ public class lebewesen
         }
     }
     
-    public void fliehen() {        
+    public void fliehen() {    
+            kampfActive = false;
             System.out.println("Du gehst auf das vorherige Feld zurück");
             facing = (facing + 2) % 4;
             gehe();
             facing = (facing - 2) % 4; 
-            kampfActive = false;
         }    
     
     public void gehe() {
@@ -66,16 +66,44 @@ public class lebewesen
         {
             switch(facing) {
                 case 0:
-                    setPos(getPos('x'), getPos('y')-1);
+                    if(getPos('y')-1 < 0)
+                    {
+                        System.out.println("Vor dir ist eine undurchdringlicher Wald");
+                    }
+                    else
+                    {
+                        setPos(getPos('x'), getPos('y')-1);
+                    }
                     break;
                     case 1:
-                    setPos(getPos('x')+1, getPos('y'));
+                    if(getPos('x')+1 > 30)
+                    {
+                        System.out.println("Vor dir ist eine undurchdringlicher Wald");
+                    }
+                    else
+                    {
+                        setPos(getPos('x')+1, getPos('y'));
+                    }
                     break;
                     case 2:
-                    setPos(getPos('x'), getPos('y')+1);
+                    if(getPos('y')+1 > 30)
+                    {
+                        System.out.println("Vor dir ist eine undurchdringlicher Wald");
+                    }
+                    else
+                    {
+                        setPos(getPos('x'), getPos('y')+1);
+                    }
                     break;
                     case 3:
-                    setPos(getPos('x')-1, getPos('y'));
+                    if(getPos('x')-1 < 0)
+                    {
+                        System.out.println("Vor dir ist eine undurchdringlicher Wald");
+                    }
+                    else
+                    {
+                        setPos(getPos('x')-1, getPos('y'));
+                    }
                     break;             
                 }   
                 //Es wird geprüft, ob auf dem selben Feld ein Moster ist                
@@ -87,7 +115,7 @@ public class lebewesen
                     kampf.kampfBeginn(i);                    
                 }
             }
-        }
+       }
     }
     
     public void tauschen() {

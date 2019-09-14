@@ -4,13 +4,15 @@ public class menschen extends lebewesen
     protected nahkampf aktuelleWaffe2;
     protected faehigkeiten aktuelleFaehigkeit;
     protected double gewicht;    
-    public menschen(fernkampf pAktuelleWaffe1, nahkampf pAktuelleWaffe2, faehigkeiten pFaehigkeit, int pLeben, String pKlasse, double pGewicht, double pAusweichen, int x, int y)
+    protected double verfehlen;
+    public menschen(fernkampf pAktuelleWaffe1, nahkampf pAktuelleWaffe2, faehigkeiten pFaehigkeit, int pLeben, String pKlasse, double pGewicht, double pAusweichen, double pVerfehlen, int x, int y)
     {
         super(pKlasse, pLeben, pAusweichen, x, y);
         gewicht = pGewicht;        
         aktuelleWaffe1 = pAktuelleWaffe1;
         aktuelleWaffe2 = pAktuelleWaffe2;
         aktuelleFaehigkeit = pFaehigkeit;
+        verfehlen = pVerfehlen;
     }
     public void useCommand(String input) {
         if (input.equals("gehe")) {

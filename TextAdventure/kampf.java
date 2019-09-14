@@ -1,8 +1,12 @@
 import java.util.LinkedList;
+import java.util.*;
 
 public class kampf
 {
-    //das IndexFled des aktuellenMonsters
+    //das IndexFeld des aktuellenMonsters
+    double w1a;
+    double w1v;
+    double p1s; // brauchst eigentlich nicht
     public static int aktuellesMonster;
     public static void kampfBeginn(int i)
     {
@@ -30,38 +34,71 @@ public class kampf
     {
         if (lebewesen.kampfActive == true)
         {
+            if (new Random().nextInt(100) >= spiel.monsterList.get(aktuellesMonster).ausweichen)
+            {
+                if (new Random().nextInt(100) >= spiel.held.verfehlen)
+            {
             if (pName == spiel.held.aktuelleWaffe1.name)
             {
-                spiel.monsterList.get(aktuellesMonster).leben = spiel.monsterList.get(aktuellesMonster).leben - spiel.held.aktuelleWaffe1.schaden;
-                if (spiel.monsterList.get(aktuellesMonster).leben <= -1)
-                {
-                    spiel.monsterList.get(aktuellesMonster).leben = 0;
+                if (new Random().nextInt(100) <= spiel.held.aktuelleWaffe1.kritChance)
+               {
+                   spiel.monsterList.get(aktuellesMonster).leben = spiel.monsterList.get(aktuellesMonster).leben - spiel.held.aktuelleWaffe1.kritSchaden;
+                System.out.println("Du hast eine Schwachstelle getroffen.\nDu hast " +spiel.held.aktuelleWaffe1.kritSchaden +" Schaden gemacht.");
                 }
-                System.out.println("Du hast " +spiel.held.aktuelleWaffe1.schaden +" Schaden gemacht. Dein Gegner hat noch " +spiel.monsterList.get(aktuellesMonster).leben +" Leben." );
+                else 
+                {
+                spiel.monsterList.get(aktuellesMonster).leben = spiel.monsterList.get(aktuellesMonster).leben - spiel.held.aktuelleWaffe1.schaden;
+                System.out.println("Du hast " +spiel.held.aktuelleWaffe1.schaden +" Schaden gemacht.");
+            }
             }
             else if (pName == spiel.held.aktuelleWaffe2.name)
             {
+                if (new Random().nextInt(100) <= spiel.held.aktuelleWaffe1.kritChance)
+               {
+                   spiel.monsterList.get(aktuellesMonster).leben = spiel.monsterList.get(aktuellesMonster).leben - spiel.held.aktuelleWaffe2.kritSchaden;
+                System.out.println("Du hast eine Schwachstelle getroffen.\nDu hast " +spiel.held.aktuelleWaffe2.kritSchaden +" Schaden gemacht."); 
+                }
+                else
+                {
                 spiel.monsterList.get(aktuellesMonster).leben = spiel.monsterList.get(aktuellesMonster).leben - spiel.held.aktuelleWaffe2.schaden;
-                if (spiel.monsterList.get(aktuellesMonster).leben <= -1)
+                System.out.println("Du hast " +spiel.held.aktuelleWaffe2.schaden +" Schaden gemacht.");
+            }
+        }
+            if (spiel.monsterList.get(aktuellesMonster).leben <= -1)
                 {
                     spiel.monsterList.get(aktuellesMonster).leben = 0;
                 }
-                System.out.println("Du hast " +spiel.held.aktuelleWaffe2.schaden +" Schaden gemacht. Dein Gegner hat noch " +spiel.monsterList.get(aktuellesMonster).leben +" Leben." );
-            }
+                System.out.println("Dein Gegner hat noch " +spiel.monsterList.get(aktuellesMonster).leben +" Leben." );
             if (spiel.monsterList.get(aktuellesMonster).leben == 0)
             {
                 System.out.println("Du hast das " +spiel.monsterList.get(aktuellesMonster).klasse +" besiegt");
+                lebewesen.kampfActive = false;
             }
+            
             else
             {
                 damagestep();
             }
+            
+        }
+        else
+        {
+            System.out.println("Das Monster ist ausgewichen");
+            damagestep();
         }
     }
+    }
+    }
+
+    
     public static void damagestep()
-    {
+    {  
         if (lebewesen.kampfActive == true)
         {
+            if (new Random().nextInt(100) >= spiel.monsterList.get(aktuellesMonster).verfehlen)
+            {
+                if (new Random().nextInt(100) >= spiel.held.ausweichen)
+            {
             spiel.held.leben = spiel.held.leben - spiel.monsterList.get(aktuellesMonster).schaden;
             if (spiel.held.leben <= -1)
             {
@@ -77,5 +114,18 @@ public class kampf
                 battlestep();
             }
         }
+        else
+        {
+            System.out.println("Du bist ausgewichen.");
+            battlestep();
+        }
+     }
+       
+       else 
+       {
+           System.out.println("Dein Gegner hat dich verfehlt.");
+           battlestep();
+        }
+    }
     }
 }

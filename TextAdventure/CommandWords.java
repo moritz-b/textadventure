@@ -13,9 +13,7 @@ public class CommandWords
 {
     // a constant array that holds all valid command words
     private static final String[] validCommands = {
-       "tauschen", "inventar", "weglegen", "axt", "katana", "machete", "dolch", "mistgabel", "revolver", 
-       "ak47", "uzi", "schrotflinte", "granatwerfer", "raketenwerfer", "granate", "gehe", "kaempfen", 
-       "fliehen", "map", "position", "dreheRechts", "dreheLinks", "Bauer", "Soldat", "Arzt", "beenden"
+       "tauschen", "inventar", "weglegen", "axt", "katana", "machete", "dolch", "mistgabel", "revolver", "ak47", "uzi", "schrotflinte", "granatwerfer", "raketenwerfer", "granate", "gehe", "kaempfen", "fliehen", "map", "position", "dreheRechts", "dreheLinks", "Bauer", "Soldat", "Arzt"
     };
     
 
